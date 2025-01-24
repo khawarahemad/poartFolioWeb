@@ -11,7 +11,7 @@ export const Contact = () => {
     email: '',
     phone: '',
     message: ''
-  }
+  };
 
   const [formDetails, setFormDetails] = useState(formInitialDetails);
   const [buttonText, setButtonText] = useState('Send');
@@ -22,7 +22,7 @@ export const Contact = () => {
       ...formDetails,
       [category]: value
     });
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,11 +53,10 @@ export const Contact = () => {
         body: JSON.stringify(discordMessage),
       });
 
-      let result = await response.json();
-      setFormDetails(formInitialDetails);
-
-      if (response.ok) {
+      // Check if the response status is 204 (No Content)
+      if (response.status === 204) {
         setStatus({ success: true, message: 'Message sent successfully to Discord!' });
+        setFormDetails(formInitialDetails); // Reset form
       } else {
         setStatus({ success: false, message: 'Something went wrong, please try again later.' });
       }
