@@ -24,9 +24,39 @@ export const Contact = () => {
     });
   };
 
+  const validateForm = () => {
+    const { firstName, lastName, email, phone, message } = formDetails;
+
+    // Check if any field is empty
+    if (!firstName || !lastName || !email || !phone || !message) {
+      setStatus({ success: false, message: 'All fields are required.' });
+      return false;
+    }
+
+    // Validate email format
+    if (!email.includes('@')) {
+      setStatus({ success: false, message: 'Please enter a valid email address.' });
+      return false;
+    }
+
+    // Validate phone number (only numbers allowed)
+    if (!/^\d+$/.test(phone)) {
+      setStatus({ success: false, message: 'Phone number should contain only numbers.' });
+      return false;
+    }
+
+    return true; // Form is valid
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setButtonText("Sending...");
+
+    // Validate the form before proceeding
+    if (!validateForm()) {
+      setButtonText("Send");
+      return; // Stop if validation fails
+    }
 
     // Define your Discord webhook URL
     const discordWebhookUrl = "https://discord.com/api/webhooks/1332430764591284384/eC69Iu-L8-zTXHxUFzxPQm7xqo_y2x6REUgfyt8GDBHdKuhHo_9PtgXlpwdz_wOOPaLa";
@@ -55,7 +85,7 @@ export const Contact = () => {
 
       // Check if the response status is 204 (No Content)
       if (response.status === 204) {
-        setStatus({ success: true, message: 'Message sent successfully to Discord!' });
+        setStatus({ success: true, message: 'Message sent successfully to Khawar!' });
         setFormDetails(formInitialDetails); // Reset form
       } else {
         setStatus({ success: false, message: 'Something went wrong, please try again later.' });
@@ -91,19 +121,49 @@ export const Contact = () => {
                   <form onSubmit={handleSubmit}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="text" value={formDetails.firstName} placeholder="First Name" onChange={(e) => onFormUpdate('firstName', e.target.value)} />
+                        <input
+                          type="text"
+                          value={formDetails.firstName}
+                          placeholder="First Name"
+                          onChange={(e) => onFormUpdate('firstName', e.target.value)}
+                          required
+                        />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="text" value={formDetails.lastName} placeholder="Last Name" onChange={(e) => onFormUpdate('lastName', e.target.value)} />
+                        <input
+                          type="text"
+                          value={formDetails.lastName}
+                          placeholder="Last Name"
+                          onChange={(e) => onFormUpdate('lastName', e.target.value)}
+                          required
+                        />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="email" value={formDetails.email} placeholder="Email Address" onChange={(e) => onFormUpdate('email', e.target.value)} />
+                        <input
+                          type="email"
+                          value={formDetails.email}
+                          placeholder="Email Address"
+                          onChange={(e) => onFormUpdate('email', e.target.value)}
+                          required
+                        />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="tel" value={formDetails.phone} placeholder="Phone No." onChange={(e) => onFormUpdate('phone', e.target.value)} />
+                        <input
+                          type="tel"
+                          value={formDetails.phone}
+                          placeholder="Phone No."
+                          onChange={(e) => onFormUpdate('phone', e.target.value)}
+                          required
+                        />
                       </Col>
                       <Col size={12} className="px-1">
-                        <textarea rows="6" value={formDetails.message} placeholder="Message" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
+                        <textarea
+                          rows="6"
+                          value={formDetails.message}
+                          placeholder="Message"
+                          onChange={(e) => onFormUpdate('message', e.target.value)}
+                          required
+                        ></textarea>
                         <button type="submit"><span>{buttonText}</span></button>
                       </Col>
                     </Row>
