@@ -522,6 +522,109 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   right: 0;
   z-index: -4;
 }
+/************ Certificates Css ************/
+.certificate {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #27162a, #010101); /* Gradient background */
+  color: #fff; /* Light text color for better contrast */
+}
+
+.certificate h2 {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.certificate p {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.certificate-item {
+  margin-bottom: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-card {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 250px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.certificate-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.certificate-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.certificate-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.certificate-card:hover .certificate-content {
+  transform: translateY(0);
+}
+
+.certificate-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.certificate-content p {
+  font-size: 16px;
+  color: #ccc;
+  margin: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 767.98px) {
+  .certificate {
+    padding: 40px 0;
+  }
+
+  .certificate h2 {
+    font-size: 28px;
+  }
+
+  .certificate p {
+    font-size: 16px;
+  }
+
+  .certificate-card {
+    height: 300px;
+  }
+
+  .certificate-content h3 {
+    font-size: 18px;
+  }
+
+  .certificate-content p {
+    font-size: 14px;
+  }
+}
 
 /************ Contact Css ************/
 .contact {
