@@ -609,11 +609,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .toast-notification.success {
-  background-color: #4caf50;
+  background-color: #243324;
 }
 
 .toast-notification.error {
-  background-color: #f44336;
+  background-color: #623835;
 }
 
 .toast-notification p {
