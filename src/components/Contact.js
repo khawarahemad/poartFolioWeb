@@ -64,12 +64,16 @@ export const Contact = () => {
     // Format the message to send to Discord
     const discordMessage = {
       content: `
-        **New Contact Form Submission || @hey_khawar01 @hey_khan_bhai ||** 
+        ╭━━━◈✨ **Contact Drop Alert!** ✨◈━━━╮
         
-        **Name**: ${formDetails.firstName} ${formDetails.lastName}
-        **Email**: ${formDetails.email}
-        **Phone**: ${formDetails.phone}
-        **Message**: ${formDetails.message}
+        **🦸 Name:**: ${formDetails.firstName} ${formDetails.lastName}
+        **📩 Hit Me Up:**: ${formDetails.email}
+        **📱 Digits:**: ${formDetails.phone}
+        **💬 Msg:**: ${formDetails.message}
+
+        💌 **Slide in ASAP!** || @hey_khawar01 @hey_khan_bhai ||  
+
+        ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯ 
       `,
     };
 
