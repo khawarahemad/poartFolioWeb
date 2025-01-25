@@ -619,6 +619,43 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .toast-notification p {
   margin: 0;
 }
+/* Mobile Responsiveness */
+@media (max-width: 767.98px) {
+  .newsletter-bx {
+    padding: 40px 20px; /* Reduced padding for mobile */
+    margin-top: -60px; /* Adjusted margin for mobile */
+    margin-bottom: 40px; /* Adjusted margin for mobile */
+    border-radius: 30px; /* Smaller border radius for mobile */
+  }
+
+  .newsletter-bx h3 {
+    font-size: 24px; /* Smaller font size for mobile */
+    text-align: center; /* Center-align text on mobile */
+  }
+
+  .new-email-bx {
+    flex-direction: column; /* Stack input and button vertically on mobile */
+    padding: 10px; /* Reduced padding for mobile */
+    border-radius: 15px; /* Smaller border radius for mobile */
+  }
+
+  .new-email-bx::before,
+  .new-email-bx::after {
+    border-radius: 15px; /* Smaller border radius for mobile */
+  }
+
+  .new-email-bx input {
+    padding: 10px; /* Adjusted padding for mobile */
+    margin-bottom: 10px; /* Space between input and button on mobile */
+  }
+
+  .new-email-bx button {
+    width: 100%; /* Full-width button on mobile */
+    padding: 15px; /* Adjusted padding for mobile */
+    font-size: 14px; /* Smaller font size for mobile */
+  }
+}
+
 
 /************ Footer Css ************/
 .footer {
