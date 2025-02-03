@@ -6,6 +6,7 @@ import projImg2 from "../assets/img/VIEWmax.png";
 import projImg3 from "../assets/img/Weather.png";
 import projImg4 from "../assets/img/Framework.png";
 import projImg5 from "../assets/img/RESIZER.png";
+import projimg6 from "../assets/img/MUsify.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import "animate.css";
 import TrackVisibility from "react-on-screen";
@@ -41,6 +42,12 @@ export const Projects = () => {
       description: "The website can resize your img size..",
       imgUrl: projImg5,
       githubUrl: "https://github.com/khawarahemad/img-resideer",
+    },
+    {
+      title: "Musify",
+      description: "The Music stremming web App..",
+      imgUrl: projimg6,
+      githubUrl: "https://github.com/khawarahemad/Musify",
     },
   ];
 
