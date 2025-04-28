@@ -20,7 +20,7 @@ export const Certificates = () => {
     {
       title: "Play It Safe: Manage Security Risks",
       issuer: "Coursera",
-      date: "Nov 2022",
+      date: "Nov 2024",
       image: "https://github.com/khawarahemad/assets/blob/main/certificates/CPlay%20It%20Safe:%20Manage%20Security%20Risk.png?raw=true",
     },
     {
