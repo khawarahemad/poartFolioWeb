@@ -1,68 +1,42 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import arrow1 from "../assets/img/arrow1.svg";
-import arrow2 from "../assets/img/arrow2.svg";
-import colorSharp from "../assets/img/color-sharp.png"
+import React from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import colorSharp from "../assets/img/color-sharp.png";
 
 export const Skills = () => {
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
+  const skillCategories = {
+    "Cybersecurity": ["Network Security", "Memory Analysis", "Penetration Testing", "Security Tools"],
+    "Development": ["React", "JavaScript", "Python", "C++"],
+    "Tools & Technologies": ["Git", "Docker", "Linux", "SQL"],
+    "Soft Skills": ["Problem Solving", "Team Leadership", "Communication", "Project Management"]
   };
 
   return (
     <section className="skill" id="skills">
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <div className="skill-bx wow zoomIn">
+      <Container>
+        <Row>
+          <Col size={12}>
+            <div className="skill-bx">
               <h2>Skills</h2>
-              <p>
-                Exploring technology with a focus on cybersecurity, memory editing, and creative projects.<br />
-                Passionate about protecting sensitive information and building innovative tools.
-              </p>
-              <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                <div className="item">
-                  <img src={meter1} alt="Cybersecurity" />
-                  <h5>Cybersecurity</h5>
-                </div>
-                <div className="item">
-                  <img src={meter2} alt="Memory Editing" />
-                  <h5>Memory Editing</h5>
-                </div>
-                <div className="item">
-                  <img src={meter3} alt="Web Development" />
-                  <h5>Web Development</h5>
-                </div>
-                <div className="item">
-                  <img src={meter1} alt="UI Development" />
-                  <h5>UI Development</h5>
-                </div>
-              </Carousel>
+              <p>Technical expertise and professional capabilities</p>
+              <Row className="skill-categories">
+                {Object.entries(skillCategories).map(([category, skills], index) => (
+                  <Col key={index} md={6} lg={3} className="skill-category">
+                    <div className="skill-category-box">
+                      <h3>{category}</h3>
+                      <ul>
+                        {skills.map((skill, skillIndex) => (
+                          <li key={skillIndex}>{skill}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
             </div>
-
-          </div>
-        </div>
-      </div>
-      <img className="background-image-left" src={colorSharp} alt="Image" />
+          </Col>
+        </Row>
+      </Container>
+      <img className="background-image-left" src={colorSharp} alt="Background" />
     </section>
-  )
-}
+  );
+};
